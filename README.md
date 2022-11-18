@@ -11,6 +11,9 @@
        T(ov) = (PS * 256) / (Fclk)  = 32.7ms
        Ticks needed = (1000) / 32.7 =30.7 = 31. 
 
+       fdgffd 
+       
+
 
 
 - the LED can be on any pin not the OC0 pin because this is not a PWM output
