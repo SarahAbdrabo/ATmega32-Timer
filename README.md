@@ -1,4 +1,4 @@
-# ATmega32-Timer
+# ATmega32-Timer Example
 
 - Timer 0 example for AMIT Learing Oct 18 group. 
 - Reqs : 1- PreScaler 1024 to achive 31 over flows
