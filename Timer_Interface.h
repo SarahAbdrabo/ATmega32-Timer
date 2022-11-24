@@ -1,5 +1,6 @@
 /*Inlcudes*/
-
+#include "BIT_MATH.h"
+#include "STD_TYPES.h"
 
 #ifndef _TIMER_INTERFACE_H
 #define _TIMER_INTERFACE_H
