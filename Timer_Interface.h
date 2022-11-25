@@ -23,11 +23,14 @@ Functions for Timer 0:
 void TIMER_voidTimer0Init(void);
 void TIMER_voidTimer0SetCompareMatchValue(u8 Copy_u8OCR0Value);
 
+void TIMER_TIMSK_ENABLE(void); 
+void TIMER_TIMSK_DIABLE(void);
+
 void __vector_10(void) __attribute((signal));  //ISR for TOV
-void TIMER_SetCallBack_OV( void(*Copy_ptrfn)(void) );
+void TIMER_SetCallBack_OV0( void(*Copy_ptrfn)(void) );
 
 void __vector_11(void) __attribute((signal));  //ISR for the OCM
-void TIMER_SetCallBack_OC( void(*Copy_ptrfn)(void) );
+void TIMER_SetCallBack_OC0( void(*Copy_ptrfn)(void) );
 
 
 

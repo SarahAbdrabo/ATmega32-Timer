@@ -99,35 +99,48 @@ void TIMER_voidTimer0SetCompareMatchValue(u8 Copy_u8OCR0Value){
     
 }
 
+/*  to use the timer in intterupt driven mode, enable the GE + the PE in the TIMSK*/
+void TIMER_TIMSK_ENABLE(void){
+   
+    SET_BIT(TIMER_TIMSK_REG, 0);
+    SET_BIT(TIMER_TIMSK_REG, 1);
+}
+
+void TIMER_TIMSK_DIABLE(void){
+   
+    CLR_BIT(TIMER_TIMSK_REG, 0);
+    CLR_BIT(TIMER_TIMSK_REG, 1);
+
+}
 
 /*              needed for isr of tov               */
 
-void (*TIMER0_CallBackPtr_OV)(void) = NULL_PTR ;
+void (*TIMER0_CallBackPtr_OV0)(void) = NULL_PTR ;
 
 //the function called by the main. 
-void TIMER_SetCallBack_OV( void(*Copy_ptrfn)(void) ){
+void TIMER_SetCallBack_OV0( void(*Copy_ptrfn)(void) ){
 
 	if (Copy_ptrfn != NULL_PTR){
 
-		TIMER0_CallBackPtr_OV = Copy_ptrfn;
+		TIMER0_CallBackPtr_OV0 = Copy_ptrfn;
 	}
 }
 void __vector_10(void){
-    TIMER0_CallBackPtr_OV();
+    TIMER0_CallBackPtr_OV0();
 }
 
-void (*TIMER0_CallBackPtr_OC)(void) = NULL_PTR ;
+void (*TIMER0_CallBackPtr_OC0)(void) = NULL_PTR ;
 
 //the function called by the main. 
-void TIMER_SetCallBack_OC( void(*Copy_ptrfn)(void) ){
+void TIMER_SetCallBack_OC0( void(*Copy_ptrfn)(void) ){
 
 	if (Copy_ptrfn != NULL_PTR){
 
-		TIMER0_CallBackPtr_OC = Copy_ptrfn;
+		TIMER0_CallBackPtr_OC0 = Copy_ptrfn;
 	}
 }
 void __vector_11(void){
-    TIMER0_CallBackPtr_OC();
+    TIMER0_CallBackPtr_OC0();
 }
 
 
