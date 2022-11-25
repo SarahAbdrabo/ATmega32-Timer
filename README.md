@@ -1,6 +1,13 @@
-# ATmega32-Timer Example
+# ATmega32-Timer Driver.
 
-- Timer 0 example for AMIT Learing Oct 18 group. 
+# WIP !
+
+## Driver 
+- configurable Timer0 prescaler, Mode, Hardware mode. 
+- 
+
+### Included Examples: 
+- Timer 0 example
 - Reqs : 1- PreScaler 1024 to achive 31 over flows
        2- using the internal clock with the prescaler. 
        3- blinking happens every 1 second. 
@@ -11,9 +18,7 @@
        T(ov) = (PS * 256) / (Fclk)  = 32.7ms
        Ticks needed = (1000) / 32.7 =30.7 = 31. 
 
-       fdgffd 
        
-
 
 
 - the LED can be on any pin not the OC0 pin because this is not a PWM output
