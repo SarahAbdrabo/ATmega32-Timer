@@ -9,7 +9,7 @@
 Functions for Timer 0: 
     A. Essenstial functions
      - init function (set prescaler - timer mode)
-     - ctc mode set counter mode. 
+     - ctc mode set counter reg value. 
 
      - interrupt sevice routine for overflow flag
      - interrupt for OC flag
@@ -22,6 +22,14 @@ Functions for Timer 0:
 */
 void TIMER_voidTimer0Init(void);
 void TIMER_voidTimer0SetCompareMatchValue(u8 Copy_u8OCR0Value);
+
+void __vector_10(void) __attribute((signal));  //ISR for TOV
+void TIMER_SetCallBack_OV( void(*Copy_ptrfn)(void) );
+
+void __vector_11(void) __attribute((signal));  //ISR for the OCM
+void TIMER_SetCallBack_OC( void(*Copy_ptrfn)(void) );
+
+
 
 
 /* 
@@ -38,6 +46,10 @@ void TIMER_voidTimer1SetCompareMatchValue(u16 Copy_u16OCR1Value);
 
 
 
+
+
+/*********************************Configurations***********************************************/
+
 /*
 Choose the desired mode for Timer 0 from 
     - Timer0_Noraml
@@ -45,16 +57,12 @@ Choose the desired mode for Timer 0 from
     - Timer0_PWM_fast
     - Timer0_PWM_phase_correct
 */
-#define Timer0_Mode Timer0_Noraml
+#define TIMER0_MODE        TIMER0_Noraml
 
 /*
-Choose the desired mode for Timer 1 from 
-    - Timer1_Noraml
-    - Timer1_CTC
-    - Timer1_PWM_fast
-    - Timer1_PWM_phase_correct
+Choose the desired mode for Timer 1 from the 16 modes in the private file. 
 */
-#define Timer1_Mode Timer1_Noraml
+#define TIMER1_MODE      TIMER1_PWM_FAST_OCR1    //for servo.
 
 /* Prescaler choice */
 #define     TIMER_PS     TIMER_PS_1024

@@ -44,15 +44,30 @@
 
 #define TIMER_ICR1_REG            *((volatile u16*)0x46)
 
-/* TIMER  1 Modes */
- #define  TIMER1_NORMAL               0
- #define  TIMER1_CTC                  2
- #define  TIMER1_PWM_FAST             3
- #define  TIMER1_PWM_PC               1
+/* TIMER  1 WGM Modes -  16, split on two Regs  */
+ #define  TIMER1_NORMAL                  0
+ #define  TIMER1_PWM_PC_8                2
+ #define  TIMER1_PWM_PC_9                3
+ #define  TIMER1_PWM_PC_10               1
+
+ #define  TIMER1_CTC_OCR1A               1
+ #define  TIMER1_PWM_FAST_8              1
+ #define  TIMER1_PWM_FAST_9              1
+ #define  TIMER1_PWM_FASR_10             1
+
+ #define  TIMER1_PWM_PC_FC_OCR1          1
+ #define  TIMER1_PWM_PC_FC_OCR1A         1
+ #define  TIMER1_PWM_PC_OCR1             1
+ #define  TIMER1_PWM_PC_OCR1A            1
+
+ #define  TIMER1_CTC_ICR`                1
+ //resereved
+ #define  TIMER1_PWM_FAST_OCR1           1       //mode 14 used for servo. 
+ #define  TIMER1_PWM_FAST_OCR1A          1
 
 
 
-/* Prescaler choice in the clock select pins CS0,1,2*/
+/* Prescaler choice in the clock select pins CS0,1,2 for Timer 0*/
 #define TIMER_NO_CLK        0
 #define TIMER_NO_PS         1
 #define TIMER_PS_8          2
